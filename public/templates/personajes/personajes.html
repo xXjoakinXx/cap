@@ -2,9 +2,15 @@
     <h1> {{ listaP }} </h1>
 
     <table>
-        <tr ng-repeat="pers in personajes">
+        <tr>
+            <th>Nombre </th>
+            <th>Votos </th>
+            <th>Votar</th>
+        </tr>
+        <tr ng-repeat="pers in personajes | orderBy: 'votos' : true">
             <td>{{ pers.nombre }}</td>
             <td> {{ pers.votos }} </td>
+            <td> <input type="button" value="+" ng-click="funciones.votar(pers)"/></td>
         </tr>
     </table>
 
