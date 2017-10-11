@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+        <header>
+                <% include layouts/header %>
+              </header>
+    <h1>Nueva pregunta</h1>
+
+    <% if (typeof success !== 'undefined') { %>
+    <%= success %>
+    <% } %> 
+
+    <%
+    if (typeof errors !== 'undefined') {
+        for(var i in errors){
+        %>
+        <p>
+            <%= errors[i].message %>
+        </p>
+        <% }
+    } %>
+
+            <form action="/quizs/add" method="POST">
+                <input placeholder="escribe pregunta"  type="text" name="quiz[pregunta]" value="<%= quiz.pregunta %>"><br>
+                <input type="text" placeholder="Escribe respuesta" name="quiz[respuesta]" value="<%= quiz.respuesta %>">
+                <!-- <input type="hidden" name="quiz[userId]" value="<%= session.user.id %>"> -->
+                <input type="submit" value="Añadir">
+            </form>
+            <footer>
+                    <% include layouts/footer %>
+                  </footer>
+</body>
+
+</html>

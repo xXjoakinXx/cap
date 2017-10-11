@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>preguntas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <header>
+        <% include layouts/header %>
+    </header>
+    <div class="container">
+
+        <table class="table table-striped">
+            <tr>
+                <th>Pregunta</th>
+                <th>Autor</th>
+                <th>Accion</th>
+            </tr>
+            <% for(var i=0; i< quizs.length; i++) {%>
+                <tr>
+                    <td>
+                        <a href="/quizs/question/<%= quizs[i].id %>">
+                            <%= quizs[i].pregunta %>
+                        </a>
+                    </td>
+                    <td>
+                        <p>
+                            <%= quizs[i].user.email %>
+                        </p>
+                    </td>
+                    <td>
+                        <form action="/quizs/question/<%= quizs[i].id %>/delete" method="POST">
+                            <input type="submit" value="Borrar">
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+        </table>
+    </div>
+    <footer>
+        <% include layouts/footer %>
+    </footer>
+</body>
+
+</html>

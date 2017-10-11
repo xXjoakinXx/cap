@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= quiz.pregunta %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      <header>
+          <% include layouts/header %>
+        </header>
+    <h1><%= quiz.pregunta %></h1>
+    <h1>ID: <%= quiz.id %></h1>
+    <form  action="/quizs/question/<%= quiz.id %>/answer">
+      <div>
+          <span>Introduce respuesta</span><br>
+          <input type="text" name="answer">
+          <input type="submit" value="Enviar">
+      </div>
+    </form>
+    <footer>
+        <% include layouts/footer %>
+      </footer>
+  </body>
+</html>
