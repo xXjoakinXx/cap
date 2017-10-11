@@ -6,13 +6,11 @@ const sequelize = new Sequelize(null, null, null, {
     storage: 'quiz.sqlite'
 });
 
-var Quiz = sequelize.import(path.join(__dirname, 'quiz'));
+var Comidas = sequelize.import(path.join(__dirname, 'comidas'));
 var User = sequelize.import(path.join(__dirname, 'user'));
 
-User.hasMany(Quiz);
-Quiz.belongsTo(User);
 
-exports.Quiz = Quiz;
+exports.Comidas = Comidas;
 exports.User = User;
 
 // //crea e instancia la tabla de preguntas
