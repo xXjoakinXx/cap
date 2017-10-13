@@ -14,20 +14,6 @@
               </header>
     <h1>Nueva pregunta</h1>
 
-    <% if (typeof success !== 'undefined') { %>
-    <%= success %>
-    <% } %> 
-
-    <%
-    if (typeof errors !== 'undefined') {
-        for(var i in errors){
-        %>
-        <p>
-            <%= errors[i].message %>
-        </p>
-        <% }
-    } %>
-
             <form action="/quizs/add" method="POST">
                 <input placeholder="escribe pregunta"  type="text" name="quiz[pregunta]" value="<%= quiz.pregunta %>"><br>
                 <input type="text" placeholder="Escribe respuesta" name="quiz[respuesta]" value="<%= quiz.respuesta %>">

@@ -10,3 +10,9 @@ header{
   color: white;
   background: #00B7FF;
 }
+section.welcome {
+  display: flex !important;
+  justify-content: center;
+  justify-items: center;
+  height: 82vh;
+}
