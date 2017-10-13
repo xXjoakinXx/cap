@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <header>
-      <% include layouts/header %>
-    </header>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<head>
+  <title><%= title %></title>
+  <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+</head>
+<body>
+  <header>
+    <% include layouts/header %>
+  </header>
+  <h1><%= title %></h1>
+  <p>Welcome to CAP</p>
+  
+  <a href="/templates/login.html">Lista Personajes</a>
 
-    <ul>
-      <li><a href="quizs/add">Nueva pregunta</a></li>
-      <li><a href="/quizs">Listar preguntas</a></li>
-    </ul>
-    <footer>
-      <% include layouts/footer %>
-    </footer>
-  </body>
+  <footer>
+    <% include layouts/footer %>
+  </footer>
+</body>
+
 </html>
