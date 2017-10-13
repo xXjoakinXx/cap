@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 
 <head>
     <title>Comidas del dia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
+<body ng-controller="ctrl as miCtrl">
     <header>
         <% include layouts/header %>
     </header>
@@ -16,52 +16,82 @@
             <button type="button" class="btn-block btn btn-success">Añadir </button>
         </div>
         <br>
-        <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Empleado</th>
-                    <th>primerPlato</th>
-                    <th>segundoPlato</th>
-                    <th>postre</th>
-                    <th>accion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(var i=0; i< comidas.length; i++) {%>
+        <div ng-if="loading">
+            <div class="alert alert-info" role="alert">
+              Espere por favor
+            </div>
+        </div>
+        <div ng-if="!loading" class="table-responsive">
+            <table class="table" ng-cloak>
+                <thead>
                     <tr>
+                        <th>Empleado</th>
+                        <th>primerPlato</th>
+                        <th>segundoPlato</th>
+                        <th>postre</th>
+                        <th>accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="e in listaComidas">
                         <td>
-                            <p>
-                                <%= comidas[i].nombre%>
-                            </p>
+                            {{e.nombre}}
                         </td>
                         <td>
-                            <%= comidas[i].primerPlato %>
+                            {{e.primerPlato}}
                         </td>
                         <td>
-                            <p>
-                                <%= comidas[i].segundoPlato %>
-                            </p>
+                            {{e.segundoPlato}}
                         </td>
                         <td>
-                            <p>
-                                <%= comidas[i].postre %>
-                            </p>
+                            {{e.postre}}
                         </td>
                         <td>
-                            <form action="/comida/<%= comidas[i].id %>/delete" method="POST">
+                            <form action="{{ 'comidas/' + e.id + '/delete'}}" method="POST">
                                 <button type="submit" class="btn btn-danger">Borrar</button>
                             </form>
                         </td>
                     </tr>
-                    <% } %>
+                    <% /* %>
+                        <!--  TABLA CARGADA CON NODE + EJS  -->
+                        <!--   <% for(var i=0; i< comidas.length; i++) {%>
+                        <tr>
+                            <td>
+                                <p>
+                                    <%= comidas[i].nombre%>
+                                </p>
+                            </td>
+                            <td>
+                                <%= comidas[i].primerPlato %>
+                            </td>
+                            <td>
+                                <p>
+                                    <%= comidas[i].segundoPlato %>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <%= comidas[i].postre %>
+                                </p>
+                            </td>
+                            <td>
+                                <form action="/comida/<%= comidas[i].id %>/delete" method="POST">
+                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                        <% */ %>
             </tbody>
-        </table>
+            </table>
         </div>
     </div>
     <footer>
         <% include layouts/footer %>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="/javascripts/listado_comidas.js"></script>
 </body>
 
 </html>
