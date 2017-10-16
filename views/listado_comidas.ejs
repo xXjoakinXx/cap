@@ -6,92 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body ng-controller="ctrl as miCtrl">
+<body ng-controller="ctrl as miCtrl" ng-cloak>
     <header>
         <% include layouts/header %>
     </header>
     <br>
     <div class="container">
         <div class="col-xs-12 col-lg-2">
-            <button type="button" class="btn-block btn btn-success">Añadir </button>
+            <a href="/comidas/new" type="button" class="btn btn-block btn btn-success">Añadir </a>
         </div>
         <br>
-        <div ng-if="loading">
+        <div ng-if="listaComidas.length == 0 && !loading">
             <div class="alert alert-info" role="alert">
-              Espere por favor
+                Todavía nadie ha añadido su comida
             </div>
         </div>
-        <div ng-if="!loading" class="table-responsive">
-            <table class="table" ng-cloak>
-                <thead>
-                    <tr>
-                        <th>Empleado</th>
-                        <th>primerPlato</th>
-                        <th>segundoPlato</th>
-                        <th>postre</th>
-                        <th>accion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="e in listaComidas">
-                        <td>
-                            {{e.nombre}}
-                        </td>
-                        <td>
-                            {{e.primerPlato}}
-                        </td>
-                        <td>
-                            {{e.segundoPlato}}
-                        </td>
-                        <td>
-                            {{e.postre}}
-                        </td>
-                        <td>
-                            <form action="{{ 'comidas/' + e.id + '/delete'}}" method="POST">
-                                <button type="submit" class="btn btn-danger">Borrar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <% /* %>
-                        <!--  TABLA CARGADA CON NODE + EJS  -->
-                        <!--   <% for(var i=0; i< comidas.length; i++) {%>
-                        <tr>
-                            <td>
-                                <p>
-                                    <%= comidas[i].nombre%>
-                                </p>
-                            </td>
-                            <td>
-                                <%= comidas[i].primerPlato %>
-                            </td>
-                            <td>
-                                <p>
-                                    <%= comidas[i].segundoPlato %>
-                                </p>
-                            </td>
-                            <td>
-                                <p>
-                                    <%= comidas[i].postre %>
-                                </p>
-                            </td>
-                            <td>
-                                <form action="/comida/<%= comidas[i].id %>/delete" method="POST">
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <% } %>
-                        <% */ %>
-            </tbody>
-            </table>
+        <div ng-if="loading">
+            <div class="alert alert-info" role="alert">
+                Espere por favor
+            </div>
         </div>
-    </div>
-    <footer>
-        <% include layouts/footer %>
-    </footer>
+        <div class="row">
+            <div class="col-lg-9">
+                <div ng-if="listaComidas.length > 0" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Empleado</th>
+                                <th>Lugar</th>
+                                <th>PrimerPlato</th>
+                                <th>SegundoPlato</th>
+                                <th>Bebida</th>
+                                <th>Postre</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="e in listaComidas">
+                                <td>
+                                    {{e.user.firstName}}
+                                </td>
+                                <td>
+                                    {{e.lugar}}
+                                </td>
+                                <td>
+                                    {{e.primerPlato}}
+                                </td>
+                                <td>
+                                    {{e.segundoPlato}}
+                                </td>
+                                <td>
+                                    {{e.bebida}}
+                                </td>
+                                <td>
+                                    {{e.postre}}
+                                </td>
+                                <td>
+                                    <form action="{{ 'comidas/' + e.id + '/delete'}}" method="POST">
+                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                    </form>
+                                </td>
+                            </tr>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <script src="/javascripts/listado_comidas.js"></script>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Lugar</th>
+                                <th>Posicion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="e in ranking | orderBy: numero">
+                                <td>{{e.lugar}}</td>
+                                <td>{{e.numero}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        <footer>
+            <% include layouts/footer %>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="/javascripts/listado_comidas.js"></script>
 </body>
 
 </html>

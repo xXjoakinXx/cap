@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     nombre: DataTypes.STRING,
     primerPlato: DataTypes.STRING,
     segundoPlato: DataTypes.STRING,
-    postre: DataTypes.STRING
+    postre: DataTypes.STRING,
+    bebida: DataTypes.STRING,
+    lugar: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

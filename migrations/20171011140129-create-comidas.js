@@ -20,6 +20,15 @@ module.exports = {
       postre: {
         type: Sequelize.STRING
       },
+      bebida: {
+        type: Sequelize.STRING
+      },
+      lugar: {
+        type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
