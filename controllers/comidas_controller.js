@@ -4,25 +4,58 @@ var Sequelize = require('sequelize');
 exports.index = function (req, res) {
     res.render('listado_comidas');
 }
+exports.newComida = function (req, res) {
+    res.render('new-comidas');
+}
+exports.addComida = function (req, res) {
+
+    /*console.log(req.session.user); */
+    req.body.userId = req.session.user.id;
+    models.Comidas.create(req.body).then(comida => {
+        res.json({ status: 201, comida: comida });
+    }).catch(err => {
+        res.json({ status: 500 });
+    });
+
+}
 exports.borrarComida = function (req, res) {
 
-console.log("RENDER VISTA")
+    console.log("RENDER VISTA")
 
     models.Comidas.findById(req.params.idComida).then(function (comida) {
-       comida.destroy().then(() => {
+        comida.destroy().then(() => {
             res.redirect('back');
         })
 
-    }) 
+    })
+}
+exports.getRankingLugares = function(req,res){
+    const Op = Sequelize.Op;
+    models.Comidas.findAll({
+        attributes: ['lugar', [Sequelize.fn('count', Sequelize.col('Comidas.lugar')), 'numero']],
+        group:['Comidas.lugar'],
+        where: {
+            $and: [
+                Sequelize.where(
+                    Sequelize.fn('DATE', Sequelize.col('comidas.createdAt')),
+                    Sequelize.literal('CURRENT_DATE')
+                )
+            ]
+        }
+    }).then(function (comidas) {
+        res.json(comidas);
+    });
+
 }
 exports.getJsonComidas = function (req, res) {
 
     const Op = Sequelize.Op;
     models.Comidas.findAll({
+        include:[models.User],
         where: {
             $and: [
                 Sequelize.where(
-                    Sequelize.fn('DATE', Sequelize.col('createdAt')),
+                    Sequelize.fn('DATE', Sequelize.col('comidas.createdAt')),
                     Sequelize.literal('CURRENT_DATE')
                 )
             ]

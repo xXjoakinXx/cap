@@ -8,7 +8,8 @@ const sequelize = new Sequelize(null, null, null, {
 
 var Comidas = sequelize.import(path.join(__dirname, 'comidas'));
 var User = sequelize.import(path.join(__dirname, 'user'));
-
+User.hasMany(Comidas);
+Comidas.belongsTo(User);
 
 exports.Comidas = Comidas;
 exports.User = User;
