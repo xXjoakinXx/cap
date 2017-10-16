@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var ctrl = require('../controllers/session_controller')
+var ctrl2 = require('../controllers/personajes_controller')
 
 router.get('/login', ctrl.new); //show formulario
 router.post('/login', ctrl.create);
 router.post('/logout', ctrl.destroy);
+
+router.get('/templates/login', ctrl2.personajes);
 
 /* GET home page. */
 router.get('/', function(req, res) {

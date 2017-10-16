@@ -2,6 +2,7 @@
 
 <head>
     <title>Personajes!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script src="login.js"></script>
@@ -9,8 +10,16 @@
 </head>
 
 <body ng-controller="appCtrl">
-    <h1> {{ saludo }} </h1>
-    <div ng-view></div>
+    <header>
+        <% include ../../views/layouts/header %>
+    </header>
+        <div class="container">
+            <h1> {{ saludo }} </h1>
+            <div ng-view></div>
+        </div>
+    <footer>
+        <% include  ../../views/layouts/footer %>
+    </footer>
 </body>
 
 </html>
