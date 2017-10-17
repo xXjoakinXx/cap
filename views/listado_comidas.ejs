@@ -13,16 +13,13 @@
     <br>
     <div class="container">
 
+
         <div ng-if="success">
             <div class="alert alert-success" role="alert">
                 <strong>Gracias</strong> Tu comida se ha registrado correctamente.
               </div>
         </div>
 
-
-        <div class="col-xs-12 col-lg-2">
-            <a href="/comidas/new" type="button" class="btn btn-block btn btn-success">Añadir </a>
-        </div>
         <br>
         <div ng-if="listaComidas.length == 0 && !loading">
             <div class="alert alert-info" role="alert">
@@ -42,11 +39,11 @@
                             <tr>
                                 <th>Empleado</th>
                                 <th>Lugar</th>
-                                <th>PrimerPlato</th>
-                                <th>SegundoPlato</th>
+                                <th>Primer Plato</th>
+                                <th>Segundo Plato</th>
                                 <th>Bebida</th>
                                 <th>Postre</th>
-                                <th>Accion</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,7 +68,7 @@
                                 </td>
                                 <td>
                                     <form action="{{ 'comidas/' + e.id + '/delete'}}" method="POST">
-                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                        <button onclick="return confirm('¿Estás seguro?');"type="submit" class="btn btn-danger">Borrar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -95,6 +92,10 @@
                         </tr>
                     </tbody>
                 </table>
+
+            </div>
+            <div class="col-xs-12 col-lg-2">
+                <a href="/comidas/new" type="button" class="btn btn-block btn btn-success">Añadir </a>
             </div>
         </div>
         <footer>
