@@ -23,7 +23,7 @@ exports.addComida = function (req, res) {
 exports.borrarComida = function (req, res) {
 
     console.log("RENDER VISTA")
-
+    console.log(req.params.idComida)
     models.Comidas.findById(req.params.idComida).then(function (comida) {
         comida.destroy().then(() => {
             res.redirect('/comidas');

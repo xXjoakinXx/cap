@@ -30,7 +30,7 @@
         </select>
         <br>
         <button ng-if="comida.lugar != 'McDonalds'" ng-click="siguiente()" class="btn btn-primary nextBtn btn-block" type="button">Siguiente</button>
-        <button ng-if="comida.lugar == 'McDonalds'" ng-click="finalizar($event)" class="btn btn-primary nextBtn btn-block " type="submit">Finalizar</button>
+        <button ng-if="comida.lugar == 'McDonalds'" ng-click="finalizar($event)" class="btn btn-primary nextBtn btn-block " type="button">Finalizar</button>
       </div>
     </div>
   </form>
@@ -51,34 +51,8 @@
           type="text">
 
         </div>
-<<<<<<< HEAD
-        </form>
-    </div>
-    <div ng-if="next" class="row setup-content" id="step-2">
-        <div class="col-xs-12 col-md-5 center">
-            <form role="form" action="#" method="POST">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <!--   <label class="control-label">Primer plato</label> -->
-                        <input ng-model="comida.primerPlato" maxlength="200" required="required" class="form-control" placeholder="Primer plato"
-                            type="text">
-                    </div>
-                    <div class="form-group">
-                        <!-- <label class="control-label">Segundo plato</label> -->
-                        <input ng-model="comida.segundoPlato" maxlength="200" required="required" class="form-control" placeholder="Segundo plato"
-                            type="text">
-                    </div>
-                    <div class="form-group">
-                        <!-- <label class="control-label">Postre</label> -->
-                        <input maxlength="200" ng-model="comida.postre" required="required" class="form-control" placeholder="Postre" type="text">
-                    </div>
-                    <div class="form-group">
-                        <!-- <label class="control-label">Postre</label> -->
-                        <input maxlength="200" ng-model="comida.bebida" required="required" class="form-control" placeholder="Bebida" type="text">
-                    </div>
-                    <button ng-click="finalizar($event)" class="btn-block btn btn-primary nextBtn btn-lg pull-right" type="button">Finalizar</button>
-                </div>
-=======
+
+      
         <div class="form-group">
           <!-- <label class="control-label">Postre</label> -->
           <input maxlength="200" ng-model="comida.postre" required="required" class="form-control" placeholder="Postre" type="text">
@@ -86,9 +60,9 @@
         <div class="form-group">
           <!-- <label class="control-label">Postre</label> -->
           <input maxlength="200" ng-model="comida.bebida" required="required" class="form-control" placeholder="Bebida" type="text">
->>>>>>> 2d1363a69b7c3e49363d0c6fa1493ac7918f3ef2
+
         </div>
-        <button ng-click="finalizar($event)" class="btn-block btn btn-primary nextBtn btn-lg pull-right" type="submit">Finalizar</button>
+        <button ng-click="finalizar($event)" class="btn-block btn btn-primary nextBtn btn-lg pull-right" type="button">Finalizar</button>
       </div>
     </div>
   </form>

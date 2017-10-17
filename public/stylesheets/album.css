@@ -1,7 +1,3 @@
-body {
-  min-height: 75rem; /* Can be removed; just added for demo purposes */
-}
-
 .navbar {
   margin-bottom: 0;
 }
@@ -10,7 +6,10 @@ body {
   padding-top: 6rem;
   padding-bottom: 6rem;
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .jumbotron p:last-child {
@@ -19,14 +18,21 @@ body {
 
 .jumbotron-heading {
   font-weight: 300;
+  font-size: 4em;
+  color: white;
 }
 
 .jumbotron .container {
   max-width: 40rem;
 }
-
+.jumbotron p{
+  margin: 40px 0;
+}
+.jumbotron h1{
+  margin-bottom: 8px;
+}
 .text-muted {
-    color: #868e96!important;
+  color: rgb(197, 208, 218)!important;
 }
 
 .album {
@@ -52,11 +58,3 @@ body {
   font-size: 85%;
 }
 
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
-}
