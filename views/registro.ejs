@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <title>
+
+    </title>
+</head>
+<body ng-controller="ctrl as miCtrl">
+    <header>
+        <% include layouts/header %>
+    </header>
+    <div class="container">
+    <form>
+        <br>
+        <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="nombre" required>
+        </div>
+        <div class="form-group">
+                <label for="inputSurnames">Surnames</label>
+                <input type="text" class="form-control" id="inputSurnames" placeholder="Apellidos" required>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail1">Email address</label>
+            <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword1">Password</label>
+            <input type="password" class="form-control" id="inputPassword1" placeholder="Contraseña" ng-model="password1" required>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword2">Password</label>
+            <input type="password" class="form-control" id="inputPassword2" placeholder="Repetir contraseña"  ng-model="password2"required>
+            <div ng-show="password1 !== password2">Las contraseñas no son iguales</div>
+            <div class="help-block with-errors"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="password1 !== password2">Register</button>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+
+
+<!--TODO: Subir a la base de datos el usuario registrado -->
+</body>
+</html>

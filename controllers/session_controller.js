@@ -1,6 +1,16 @@
 var models = require('../models/models')
 
 exports.loginRequired = function (req, res, next) {
+
+    //redirect despues de login    
+    if (!req.baseUrl.match(/\/login|\/logout/)) {
+        req.session.redir = req.baseUrl;
+    } else {
+        req.session.redir = "/";
+    }
+    // console.log("nos iremos a: ")
+    // console.log(req.session.redir)
+
     if (req.session.user) {
         next();
     } else {
@@ -31,6 +41,6 @@ exports.create = function (req, res) {
 }
 exports.destroy = function (req, res) {
     req.session.user = null,
-        delete req.session.user;
+    delete req.session.user;
     res.redirect("/");
 }

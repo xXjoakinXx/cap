@@ -1,0 +1,60 @@
+.navbar {
+  margin-bottom: 0;
+}
+
+.jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+  font-size: 4em;
+  color: white;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+.jumbotron p{
+  margin: 40px 0;
+}
+.jumbotron h1{
+  margin-bottom: 8px;
+}
+.text-muted {
+  color: rgb(197, 208, 218)!important;
+}
+
+.album {
+  min-height: 50rem; /* Can be removed; just added for demo purposes */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #f7f7f7;
+}
+
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+}
+
+.card-text {
+  font-size: 85%;
+}
+

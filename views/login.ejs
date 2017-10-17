@@ -16,13 +16,13 @@
     <form class="form-signin" action="/login" method="POST">
       <h2 class="text-center form-signin-heading">Iniciar sesión</h2>
       <label for="inputEmail" class="sr-only">Email</label>
-      <input type="email" required name="email" type="text" id="inputEmail" class="form-control" placeholder="Email address" autofocus="">
+      <input type="email" required name="email" type="text" id="inputEmail" class="form-control" placeholder="Email" autofocus="">
       <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" required id="inputPassword" name="password" class="form-control" placeholder="Password">
+      <input type="password" required id="inputPassword" name="password" class="form-control" placeholder="Contraseña">
       <div class="checkbox">
         <label>
-              <input type="checkbox" value="remember-me"> Recuerdame
-            </label>
+          <input type="checkbox" value="remember-me"> Recuerdame
+        </label>
       </div>
       <% if ( messages.length > 0 ) { %>
         <%  for(var i in messages){ %>
@@ -30,17 +30,17 @@
             <%= messages[i] %>
           </div>
           <% } %>
-            <% } %>
+      <% } %>
 
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-              <p>¿Todavía no eres miembro?</p>
-              <a href="/registro" class="btn-lg btn-block btn btn-secondary">
-                        Nueva cuenta
-                      </a>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button><br>
+          <p>¿Todavía no eres miembro?</p>
+          <a href="/users/registro" class="btn-lg btn-block btn btn-secondary">
+            Regístrate
+          </a>
+        </form>
+      </div>
 
-    </form>
-  </div>
 
-</body>
+    </body>
 
-</html>
+    </html>

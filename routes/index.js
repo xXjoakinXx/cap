@@ -7,7 +7,6 @@ router.get('/login', ctrl.new); //show formulario
 router.post('/login', ctrl.create);
 router.post('/logout', ctrl.destroy);
 
-router.get('/templates/login', ctrl2.personajes);
 
 /* GET home page. */
 router.get('/', function(req, res) {
