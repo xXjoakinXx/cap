@@ -2,7 +2,7 @@ var models = require('../models/models')
 var Sequelize = require('sequelize');
 
 exports.index = function (req, res) {
-    res.render('listado_comidas');
+    res.render('listado_comidas',{created:false});
 }
 exports.newComida = function (req, res) {
     res.render('new-comidas');
@@ -24,7 +24,7 @@ exports.borrarComida = function (req, res) {
 
     models.Comidas.findById(req.params.idComida).then(function (comida) {
         comida.destroy().then(() => {
-            res.redirect('back');
+            res.redirect('/comidas');
         })
 
     })
