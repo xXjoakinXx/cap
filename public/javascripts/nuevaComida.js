@@ -1,5 +1,5 @@
 var app = angular.module('miModulo', []);
-app.controller('miCtrl', function ($scope, $http) {
+app.controller('miCtrl', function ($window,$scope, $http) {
 
     $scope.comida = {
         primerPlato: "",
@@ -17,8 +17,8 @@ app.controller('miCtrl', function ($scope, $http) {
     $scope.finalizar = function ($event) {
         $http.post("/comidas/new", $scope.comida)
         .then(function (response) {
-                console.log(response.data)
-                 location.href ="/comidas"; 
+                console.log(response.data);
+                $window.location.href ="/comidas?created=true"; 
             }, function (res) {
                 alert("ERROR DESCONOCIDO")
             });

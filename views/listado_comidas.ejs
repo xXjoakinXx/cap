@@ -12,6 +12,14 @@
     </header>
     <br>
     <div class="container">
+
+        <div ng-if="success">
+            <div class="alert alert-success" role="alert">
+                <strong>Gracias</strong> Tu comida se ha registrado correctamente.
+              </div>
+        </div>
+
+
         <div class="col-xs-12 col-lg-2">
             <a href="/comidas/new" type="button" class="btn btn-block btn btn-success">Añadir </a>
         </div>
@@ -73,20 +81,20 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Lugar</th>
-                                <th>Posicion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="e in ranking | orderBy: numero">
-                                <td>{{e.lugar}}</td>
-                                <td>{{e.numero}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <table ng-if="listaComidas.length > 0" class="table">
+                    <thead>
+                        <tr>
+                            <th>Lugar</th>
+                            <th>Votos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="e in ranking | orderBy: num">
+                            <td>{{e.lugar}}</td>
+                            <td>{{e.numero}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <footer>
