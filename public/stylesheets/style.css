@@ -83,3 +83,18 @@ h1.align-self-center {
 .top-menu a {
   color: #eceeef !important;
 }
+.wa_btn{
+  padding: 15px 10px;
+  color: white;
+  background: url(../images/images.png) #449d44 no-repeat 13px;
+  background-size: 31px;
+  width: 200px
+}
+.compartir{
+  text-align: right;
+  clear: both;
+  margin-bottom: 10px;
+}
+thead {
+  background: rgba(214, 214, 214, 0.61);
+}

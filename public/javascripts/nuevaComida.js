@@ -22,6 +22,6 @@ app.controller('miCtrl', function ($window,$scope, $http) {
             }, function (res) {
                 alert("ERROR DESCONOCIDO")
             });
-            $event.preventDefault();
+            // $event.preventDefault();
     }
 })

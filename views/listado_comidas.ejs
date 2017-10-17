@@ -12,12 +12,10 @@
     </header>
     <br>
     <div class="container">
-
-
         <div ng-if="success">
             <div class="alert alert-success" role="alert">
                 <strong>Gracias</strong> Tu comida se ha registrado correctamente.
-              </div>
+            </div>
         </div>
 
         <br>
@@ -68,7 +66,7 @@
                                 </td>
                                 <td>
                                     <form action="{{ 'comidas/' + e.id + '/delete'}}" method="POST">
-                                        <button onclick="return confirm('¿Estás seguro?');"type="submit" class="btn btn-danger">Borrar</button>
+                                        <button onclick="return confirm('¿Estás seguro?');" type="submit" class="btn btn-danger">Borrar</button>
                                     </form>
                                 </td>
                             </tr>
