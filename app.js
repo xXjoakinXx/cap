@@ -25,15 +25,20 @@ app.use(cookieParser('quiz formacion cap'));
 app.use(session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     //redirect despues de login    
-    if(!req.path.match(/\/login|\/logout/)){
+    if (!req.path.match(/\/login|\/logout/)) {
         req.session.redir = req.path;
-    }else{
+    } else {
         req.session.redir = "/";
     }
     //hacer visible session en las vistas
     res.locals.session = req.session;
+
+    //hacer visible las queris en la vista
+/*     console.log(req.url)
+    res.locals.query  =  req.params.created; */
+
     next();
 });
 
@@ -42,7 +47,7 @@ app.use('/users', users);
 app.use('/comidas', comidas);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -53,7 +58,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -64,7 +69,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
