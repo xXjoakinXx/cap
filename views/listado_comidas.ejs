@@ -2,11 +2,12 @@
 <html ng-app="app">
 
 <head>
-    <title>Comidas del dia</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comidas del dia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body ng-controller="ctrl as miCtrl" ng-cloak>
+<<<<<<< HEAD
     <header>
         <% include layouts/header %>
     </header>
@@ -16,8 +17,33 @@
             <div class="alert alert-success" role="alert">
                 <strong>Gracias</strong> Tu comida se ha registrado correctamente.
             </div>
-        </div>
+=======
+  <header>
+    <% include layouts/header %>
+  </header>
 
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Comidas</h1>
+      <p class="lead text-muted">¿Qué te apetece comer? <br>Elige tu menú y no te quedes sin comer, pequeño Capgeminite.</p>
+      <p>
+        <a href="/comidas/new" class="btn btn-success">Elegir comida</a>
+        <a href="/comidas/solo" class="btn btn-secondary">Como solo</a>
+      </p>
+    </div>
+  </section>
+  <br>
+  <div class="container">
+    <div ng-if="success">
+      <div class="col-md-auto">
+        <div class="alert alert-success" role="alert">
+          <strong>Gracias</strong> Tu comida se ha registrado correctamente.
+>>>>>>> 2d1363a69b7c3e49363d0c6fa1493ac7918f3ef2
+        </div>
+      </div>
+    </div>
+
+<<<<<<< HEAD
         <br>
         <div ng-if="listaComidas.length == 0 && !loading">
             <div class="alert alert-info" role="alert">
@@ -90,19 +116,120 @@
                         </tr>
                     </tbody>
                 </table>
+=======
+    <div ng-if="listaComidas.length == 0 && !loading">
+      <div class="alert alert-info" role="alert">
+        Todavía nadie ha añadido su comida
+      </div>
+    </div>
 
-            </div>
-            <div class="col-xs-12 col-lg-2">
-                <a href="/comidas/new" type="button" class="btn btn-block btn btn-success">Añadir </a>
-            </div>
-        </div>
-        <footer>
-            <% include layouts/footer %>
-        </footer>
+    <div ng-if="loading">
+      <div class="alert alert-info" role="alert">
+        Espere por favor
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-9">
+        <div ng-if="listaComidas.length > 0" class="table-responsive">
+          <table class="table">
+            <!-- <div class="col-xs-12 col-lg-2 " style="padding: .5rem 1rem;">
+            <a href="/comidas/new"><button type="button" class="btn-block btn btn-success"
+            data-toggle="modal" data-target="#exampleModal">Añadir</button> </a>
+          </div> -->
+          <thead>
+            <tr>
+              <th>Empleado</th>
+              <th>Lugar</th>
+              <th>Primer Plato</th>
+              <th>Segundo Plato</th>
+              <th>Bebida</th>
+              <th>Postre</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="e in listaComidas">
+              <td>
+                {{e.user.firstName}}
+              </td>
+              <td>
+                {{e.lugar}}
+              </td>
+              <td>
+                {{e.primerPlato}}
+              </td>
+              <td>
+                {{e.segundoPlato}}
+              </td>
+              <td>
+                {{e.bebida}}
+              </td>
+              <td>
+                {{e.postre}}
+              </td>
+              <td>
+                <form action="{{ 'comidas/' + e.id + '/delete'}}" method="POST">
+                  <button type="button" class="btn-block btn btn-danger" data-toggle="modal" data-target="#exampleModal">Borrar</button>
+>>>>>>> 2d1363a69b7c3e49363d0c6fa1493ac7918f3ef2
 
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title " id="exampleModalLabel">Aviso</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>¿Estás seguro? </strong>Tendrás que añadir otra comida o te quedas sin comer.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary">Si</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+<<<<<<< HEAD
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
         <script src="/javascripts/factoria.js"></script>
         <script src="/javascripts/listado_comidas.js"></script>
 </body>
 
 </html>
+=======
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <table ng-if="listaComidas.length > 0" class="table">
+          <thead  class="thead-inverse">
+            <tr>
+              <th>Lugar</th>
+              <th>Votos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="e in ranking | orderBy: num">
+              <td>{{e.lugar}}</td>
+              <td>{{e.numero}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer>
+      <% include layouts/footer %>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="/javascripts/listado_comidas.js"></script>
+  </body>
+>>>>>>> 2d1363a69b7c3e49363d0c6fa1493ac7918f3ef2

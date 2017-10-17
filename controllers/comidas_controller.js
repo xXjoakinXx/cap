@@ -7,6 +7,9 @@ exports.index = function (req, res) {
 exports.newComida = function (req, res) {
     res.render('new-comidas');
 }
+exports.comoSolo = function (req, res) {
+    res.render('como-solo');
+}
 exports.addComida = function (req, res) {
 
     /*console.log(req.session.user); */
@@ -16,7 +19,6 @@ exports.addComida = function (req, res) {
     }).catch(err => {
         res.json({ status: 500 });
     });
-
 }
 exports.borrarComida = function (req, res) {
 
