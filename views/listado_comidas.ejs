@@ -89,7 +89,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="e in ranking | orderBy: num">
+                        <tr ng-repeat="e in ranking | orderBy: 'numero' :true">
                             <td>{{e.lugar}}</td>
                             <td>{{e.numero}}</td>
                         </tr>
@@ -102,6 +102,7 @@
         </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="/javascripts/factoria.js"></script>
         <script src="/javascripts/listado_comidas.js"></script>
 </body>
 

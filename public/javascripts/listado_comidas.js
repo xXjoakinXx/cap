@@ -1,4 +1,5 @@
-var app = angular.module('app', [])
+
+var app = angular.module('app', ['factoria'])
 app.controller('ctrl', function (facComidas, $scope, $http, $location) {
 
     $scope.listaComidas = [];
@@ -18,26 +19,4 @@ app.controller('ctrl', function (facComidas, $scope, $http, $location) {
         $scope.ranking = data;
     })
 
-}).factory('facComidas', function ($http) {
-    return {
-        getRanking: function(){
-            return $http.get("/comidas/ranking")
-            .then(function (response) {
-                return response.data;
-            }, function (res) {
-                alert("ERROR DESCONOCIDO")
-            });
-        },
-        getComidas: function () {
-            return $http.get("/comidas/hoy")
-                .then(function (response) {
-                    /*   $scope.loading = false; */
-                    return response.data;
-                }, function (res) {
-                    alert("ERROR DESCONOCIDO")
-                });
-        }
-    }
-
-
-})
+});
