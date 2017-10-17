@@ -22,3 +22,6 @@ exports.autenticar = function (_email, _pass, callback) {
     });
 
 }
+exports.showRegistro = function(req,res){
+    res.render("registro")
+}
