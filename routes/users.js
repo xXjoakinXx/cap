@@ -6,7 +6,8 @@ var ctrl = require('../controllers/user_controller');
 router.get('/', function(req, res) {
   res.send('respond with a resource');
 });
-router.get('/registro', ctrl.showRegistro);
+router.get('/registro', ctrl.index)
+router.post('/registro', ctrl.addUser);
 
 
 module.exports = router;

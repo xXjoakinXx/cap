@@ -35,7 +35,7 @@
             <div ng-show="usuario.password !== password2">Las contraseñas no son iguales</div>
             <div class="help-block with-errors"></div>
         </div>
-        <button type="button" class="btn btn-primary" ng-disabled="usuario.password !== password2" ng-click="registrar()">Registrar</button>
+        <button type="button" class="btn btn-primary" ng-disabled="(usuario.password !== password2) || (!usuario.nombre) || (!usuario.apellidos) || (!usuario.email) || (!usuario.password)" ng-click="registrar()">Registrar</button>
     </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>

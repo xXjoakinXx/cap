@@ -9,7 +9,7 @@ exports.newComida = function (req, res) {
 }
 exports.addComida = function (req, res) {
 
-    console.log("Esto es lo que sale en el body -->" , req.body , "<-- Aqui acaba el body"); 
+    /*console.log("Esto es lo que sale en el body -->" , req.body , "<-- Aqui acaba el body"); */
     req.body.userId = req.session.user.id;
     models.Comidas.create(req.body).then(comida => {
         res.json({ status: 201, comida: comida });

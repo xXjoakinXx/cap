@@ -1,6 +1,17 @@
 var models = require('../models/models')
 
 
+exports.index = function (req, res) {
+    res.render('registro');
+}
+exports.addUser = function (req, res) {
+
+   
+    console.log("Esto es lo que sale en el body -->", req.body, "<-- Aqui acaba el body");
+
+
+}
+
 exports.autenticar = function (_email, _pass, callback) {
 
     models.User.findAll({
