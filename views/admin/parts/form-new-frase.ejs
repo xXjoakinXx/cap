@@ -1,0 +1,26 @@
+<div class="container"></div>
+<form name="form" method="POST" novalidate> <!-- no validate para no usar el validador html5-->
+  <div class="col-md-12">
+    <div class="form-group">
+        <label class="control-label">Escribe una frase</label>
+      <input name="frase" ng-model="citaCelebre.frase"
+      maxlength="200" required class="form-control" placeholder="Frase celebre" type="text">
+      <div ng-show="form.$submitted || form.frase.$touched">
+          <span class="text-danger" ng-show="form.frase.$error.required">Por favor escribe una frase</span>
+          <!-- <span ng-show="form.frase.$error.email">This is not a valid email.</span> -->
+        </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Selecciona autor de la frase</label>
+      <select id="selectUser" class="form-control" ng-model="citaCelebre.userId" ng-options="user.id as user.firstName for user in users">
+         
+      </select>
+    </div>
+
+    <button ng-click="submitForm(form)" class="btn-block btn btn-primary nextBtn btn-lg pull-right" type="submit">Finalizar</button>
+  </div>
+  </div>
+</form>
+</div>
+</form>
+</div>
