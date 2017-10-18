@@ -1,6 +1,10 @@
 var models = require('../models/models')
 
-
+exports.getUsersJson = function(req,res){
+    models.User.findAll().then(function(users){
+        res.json(users)
+    })
+}
 exports.autenticar = function (_email, _pass, callback) {
 
     models.User.findAll({

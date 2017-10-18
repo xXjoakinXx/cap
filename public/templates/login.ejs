@@ -1,25 +1,11 @@
-<html ng-app="app">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+<script src="/templates/login.js"></script>
+<script src="/templates/personajes/personajes.js"></script>
 
-<head>
-    <title>Personajes!</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
-    <script src="/templates/login.js"></script>
-    <script src="/templates/personajes/personajes.js"></script>
-</head>
+<body ng-app="app" ng-controller="appCtrl">
 
-<body ng-controller="appCtrl">
-    <header>
-        <% include ../../views/layouts/header %>
-    </header>
-        <div class="container">
-            <div ng-view></div>
-        </div>
-    <footer>
-        <% include  ../../views/layouts/footer %>
-    </footer>
-</body>
-
-</html>
+    <div class="container">
+        <h1> {{ saludo }} </h1>
+        <div ng-view></div>
+    </div>
