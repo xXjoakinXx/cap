@@ -8,9 +8,13 @@ var session = require('express-session');
 var flash = require('connect-flash'); //para mensajes flash
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var comidas = require('./routes/comidas');
+
 var models = require('./models/models');
+var users = require('./routes/users');
+var personajes = require('./routes/personajes');
+var votos = require('./routes/votos');
+var comidas = require('./routes/comidas');
+
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,13 +29,9 @@ app.use(cookieParser('quiz formacion cap'));
 app.use(session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(function (req, res, next) {
-    //redirect despues de login    
-    if (!req.path.match(/\/login|\/logout/)) {
-        req.session.redir = req.path;
-    } else {
-        req.session.redir = "/";
-    }
+
     //hacer visible session en las vistas
     res.locals.session = req.session;
 
@@ -45,6 +45,8 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/comidas', comidas);
+app.use('/personajes', personajes);
+app.use('/votos', votos);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

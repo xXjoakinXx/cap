@@ -7,6 +7,9 @@ exports.index = function (req, res) {
 exports.newComida = function (req, res) {
     res.render('new-comidas');
 }
+exports.comoSolo = function (req, res) {
+    res.render('como-solo');
+}
 exports.addComida = function (req, res) {
 
     /*console.log("Esto es lo que sale en el body -->" , req.body , "<-- Aqui acaba el body"); */
@@ -16,12 +19,11 @@ exports.addComida = function (req, res) {
     }).catch(err => {
         res.json({ status: 500 });
     });
-
 }
 exports.borrarComida = function (req, res) {
 
     console.log("RENDER VISTA")
-
+    console.log(req.params.idComida)
     models.Comidas.findById(req.params.idComida).then(function (comida) {
         comida.destroy().then(() => {
             res.redirect('/comidas');

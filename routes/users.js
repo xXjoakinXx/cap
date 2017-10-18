@@ -8,6 +8,6 @@ router.get('/', function(req, res) {
 });
 router.get('/registro', ctrl.index)
 router.post('/registro', ctrl.addUser);
-
+router.get('/user', ctrl.findByEmail);
 
 module.exports = router;

@@ -9,6 +9,8 @@ router.post('/new',ctrlSession.loginRequired, ctrl.addComida);
 router.get('/hoy',ctrlSession.loginRequired, ctrl.getJsonComidas);
 router.post('/:idComida/delete',ctrlSession.loginRequired, ctrl.borrarComida);
 router.get('/ranking' , ctrl.getRankingLugares);
+router.get('/solo',ctrlSession.loginRequired, ctrl.comoSolo);
+
 
 /*
 router.get('/', ctrl.index);

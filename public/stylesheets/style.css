@@ -2,6 +2,8 @@ body {
   padding: 0px;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 a {
   color: #00B7FF;
@@ -14,7 +16,7 @@ section.welcome {
   display: flex !important;
   justify-content: center;
   justify-items: center;
-  height: 82vh;
+  height: 100vh;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -62,3 +64,41 @@ section.welcome {
   line-height: 1.428571429;
   border-radius: 15px;
 }
+.bg-faded {
+  background-color: rgba(2, 117, 216, 0.76);
+  border-bottom: 1px solid rgba(204, 204, 204, 0.17);
+}
+section.welcome {
+  background: #0275d8;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(236, 238, 239, 0.87);
+}
+h1.align-self-center {
+  color: white;
+  text-align: center;
+}
+.navbar-toggler-icon {
+  width: 1em;
+  height: 1em;
+}
+.top-menu a {
+  color: #eceeef !important;
+}
+.wa_btn{
+  padding: 15px 10px;
+  color: white;
+  background: url(../images/images.png) #449d44 no-repeat 13px;
+  background-size: 31px;
+  width: 200px
+}
+.compartir{
+  text-align: right;
+  clear: both;
+  margin-bottom: 10px;
+}
+thead {
+  background: rgba(214, 214, 214, 0.61);
+}
+
+

@@ -7,8 +7,13 @@ exports.index = function (req, res) {
 exports.addUser = function (req, res) {
 
    
-    console.log("Esto es lo que sale en el body -->", req.body, "<-- Aqui acaba el body");
+    //console.log("Esto es lo que sale en el body -->", req.body, "<-- Aqui acaba el body");
 
+    models.User.create(req.body).then(usuario => {
+        res.json({ status: 201, usuario: usuario });
+    }).catch(err => {
+        res.json({ status: 500 });
+    });
 
 }
 
@@ -36,3 +41,14 @@ exports.autenticar = function (_email, _pass, callback) {
 exports.showRegistro = function(req,res){
     res.render("registro")
 }
+
+exports.findByEmail = function (_email, callback) {
+    models.User.find({
+            where: {
+                email: _email.query.email
+            }
+        }).then(function (user) {
+            callback.json({ status: 201, user });
+        });
+    }
+
