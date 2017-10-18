@@ -11,8 +11,15 @@ var User = sequelize.import(path.join(__dirname, 'user'));
 var Personajes = sequelize.import(path.join(__dirname, 'personajes'));
 var Votos = sequelize.import(path.join(__dirname, 'votos'));
 
+// 1-a-N Comidas y Usuarios
 User.hasMany(Comidas);
 Comidas.belongsTo(User);
+
+// 1-a-N Personajes y Usuarios
+User.hasMany(Personajes);
+Personajes.belongsTo(User);
+
+
 
 exports.Comidas = Comidas;
 exports.User = User;

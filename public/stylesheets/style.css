@@ -97,6 +97,12 @@ h1.align-self-center {
   clear: both;
   margin-bottom: 10px;
 }
+
+.is-first{
+  color: green;
+  font-size: 20px;
+}
+
 thead {
   background: rgba(214, 214, 214, 0.61);
 }
