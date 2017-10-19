@@ -28,14 +28,9 @@ function ($rootScope,$scope, $sce, $http, $window, $location) {
                         "<strong>Error:</strong> Ya has votado truhan <div>");
                     }else{
                         $window.location.href = "/login"; 
-                       /* pers.votos--;
-                       $scope.alert = $sce.trustAsHtml("<div class=\"alert alert-info\" role=\"alert\">" + 
-                       "<strong>Atención:</strong> Para poder votar debes logearte <div>"); */
                     }
                 });
 
-               
-                
             } else {
                 $scope.alert = $sce.trustAsHtml("<div class=\"alert alert-danger\" role=\"alert\">" + 
                 "<strong>Error:</strong> Ya has votado truhan <div>");
