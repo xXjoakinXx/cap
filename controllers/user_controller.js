@@ -52,3 +52,6 @@ exports.findByEmail = function (_email, callback) {
         });
     }
 
+    exports.profile = function (req, res) {
+        res.render('perfil');
+    }

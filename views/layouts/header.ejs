@@ -37,7 +37,9 @@
               <%= session.user.email %>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <button class="dropdown-item" type="button">Perfil</button>
+              <a href="/users/perfil">
+                <button class="dropdown-item" type="button">Perfil</button>
+              </a>
               <form action="/logout" method="POST">
                 <button class="dropdown-item" type="submit">Cerrar sessión</button>
               </form>
