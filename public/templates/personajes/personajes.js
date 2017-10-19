@@ -3,7 +3,7 @@ var personaje = angular.module("personaje", ["ngRoute"]);
 
 personaje.controller('personajeCtrl', ['$rootScope','$scope', '$sce', '$http','$window', '$location', '$routeParams',
 function ($rootScope,$scope, $sce, $http, $window, $location, $routeParams) {
-    $scope.listaP = "Lista de Personajes";
+    $scope.listaP = "Lista de Frases";
     $scope.voto = 1;
     $scope.votado = false;
 

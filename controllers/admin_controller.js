@@ -2,10 +2,10 @@ var models = require('../models/models')
 var Sequelize = require('sequelize');
 
 exports.index = function (req, res) {
-    res.render('admin/panelAdmin');
+    res.render('admin/panelAdmin', {layout:'admin/panelAdmin'});
 }
 exports.createFrase = function (req, res) {
-    res.render('admin/createFrase');
+    res.render('admin/createFrase',{layout:'admin/createFrase'});
 }
 exports.addFrase = function(req,res){
 
@@ -18,7 +18,7 @@ exports.addFrase = function(req,res){
 
 }
 exports.createRonda = function (req, res) {
-    res.render('admin/createRonda');
+    res.render('admin/createRonda', {layout: 'admin/createRonda'});
 }
 exports.getRondasJson = function(req,res){
     models.Rondas.findAll().then(function(rondas){

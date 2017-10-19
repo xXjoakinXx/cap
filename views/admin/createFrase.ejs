@@ -6,15 +6,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<div ng-app="app" ng-controller="miCtrl" class="container">
-    <br>
-    <div ng-show="alert" class="alert alert-success" role="alert">
-        <strong>Gracias</strong> Has añadido una frase celebre
+<body>
+    <header>
+        <% include parts/header %>
+    </header>
+    <div ng-app="app" ng-controller="miCtrl" class="container">
+        <br>
+        <div ng-show="alert" class="alert alert-success" role="alert">
+            <strong>Gracias</strong> Has añadido una frase celebre
+        </div>
+        <div ng-show="error" class="alert alert-danger" role="alert">
+            <strong>ERROR</strong> Todos los campos son obligatorios
+        </div>
+        <% include parts/form-new-frase %>
     </div>
-    <div ng-show="error" class="alert alert-danger" role="alert">
-        <strong>ERROR</strong> Todos los campos son obligatorios
-    </div>
-    <% include parts/form-new-frase %>
-</div>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 <script src="/javascripts/nuevaFrase.js"></script>

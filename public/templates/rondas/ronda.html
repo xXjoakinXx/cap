@@ -6,10 +6,15 @@
             <tr>
                 <th>Nombre</th>
                 <th>Fecha Fin</th>
+                <th>Estado</th>
             </tr>
-            <tr ng-repeat="ronda in rondas" ng-click="irRonda(ronda)">
+            <tr ng-repeat="ronda in rondas | orderBy: 'fechaFin' : true" ng-click="irRonda(ronda)">
                 <td> {{ ronda.nombre }}</td>
-                <td> {{ ronda.fechaFin }}</td>
+                <td> {{ ronda.fechaParse }}</td>
+                <td>
+                    <input type="button" class="btn btn-success" ng-if="ronda.estado" value="Abierta"/>
+                    <input type="button" class="btn btn-danger" ng_if="!ronda.estado" value="Finalizada" />
+                </td>
             </tr>
         </table>
     </div>
