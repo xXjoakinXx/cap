@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='/stylesheets/album.css' />
 <link href="/stylesheets/signin.css" rel="stylesheet" />
 <link rel='stylesheet' href='/stylesheets/style.css' />
+
 <nav class="top-menu navbar navbar-toggleable-md navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +13,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/comidas">Comida<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/comidas">Comida
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/personajes/templates/login">Personajes</a>
@@ -33,7 +36,9 @@
               <%= session.user.email %>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <button class="dropdown-item" type="button">Perfil</button>
+              <a href="/users/perfil">
+                <button class="dropdown-item" type="button">Perfil</button>
+              </a>
               <form action="/logout" method="POST">
                 <button class="dropdown-item" type="submit">Cerrar sessión</button>
               </form>
