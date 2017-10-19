@@ -10,14 +10,23 @@ var Comidas = sequelize.import(path.join(__dirname, 'comidas'));
 var User = sequelize.import(path.join(__dirname, 'user'));
 var Personajes = sequelize.import(path.join(__dirname, 'personajes'));
 var Votos = sequelize.import(path.join(__dirname, 'votos'));
+var Rondas = sequelize.import(path.join(__dirname, 'rondas'));
 
+// 1-a-N Comidas y Usuarios
 User.hasMany(Comidas);
 Comidas.belongsTo(User);
+
+// 1-a-N Personajes y Usuarios
+User.hasMany(Personajes);
+Personajes.belongsTo(User);
+
+
 
 exports.Comidas = Comidas;
 exports.User = User;
 exports.Personajes = Personajes;
 exports.Votos = Votos;
+exports.Rondas= Rondas;
 
 // //crea e instancia la tabla de preguntas
 // sequelize.sync().then(function () {

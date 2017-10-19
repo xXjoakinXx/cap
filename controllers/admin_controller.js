@@ -17,3 +17,20 @@ exports.addFrase = function(req,res){
     })
 
 }
+exports.createRonda = function (req, res) {
+    res.render('admin/createRonda');
+}
+exports.getRondasJson = function(req,res){
+    models.Rondas.findAll().then(function(rondas){
+        res.json(rondas)
+    })
+}
+exports.addRonda = function (req, res) {
+    
+    models.Rondas.create(req.body).then(function(ronda){
+        res.json(ronda)
+    }).catch(function(err){
+        res.json(err)
+    })
+
+}

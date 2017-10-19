@@ -1,3 +1,4 @@
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -34,16 +35,19 @@ app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
 
+
     //redirect despues de login    
     if (!req.path.match(/\/login|\/logout/)) {
         console.log("url login o logoyut o /:" + req.path)
         req.session.redir = req.path;
     } else {
-        // console.log("aqui entra")
+        console.log("aqui entra")
         //  req.session.redir = "/";
     }
-    // console.log("nos iremos a: ")
-    // console.log(req.session.redir)
+
+    
+    console.log("nos iremos a: ")
+    console.log(req.session.redir)
 
     //hacer visible session en las vistas
     res.locals.session = req.session;
