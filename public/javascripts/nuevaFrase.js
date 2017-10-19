@@ -3,9 +3,9 @@ app.controller('miCtrl', function (personajes, $http, $scope) {
 
     promise = personajes.getUsers();
     promise2 = personajes.getRondas();
-    promise2.then(function(data){
+    promise2.then(function (data) {
         $scope.rondas = data;
-        $scope.citaCelebre.rondaId = 1;
+        $scope.citaCelebre.rondaId = $scope.rondas[0].id;
     });
     promise.then(function (data) {
         $scope.users = data;
@@ -13,20 +13,22 @@ app.controller('miCtrl', function (personajes, $http, $scope) {
             userId: $scope.users[0].id,
             frase: "",
             votos: 0,
-            rondaId:"",
+            rondaId: "",
         };
 
     });
     $scope.submitForm = function (form) {
-        if(form.$valid){
+        if (form.$valid) {
             promise = personajes.addPersonaje($scope.citaCelebre);
             promise.then(function (personaje) {
+                $scope.error = false;
                 $scope.alert = true;
             })
-        }else{
+        } else {
             $scope.error = true;
+            $scope.alert = false;
         }
-       
+
     };
 
 }).factory('personajes', function ($http) {
