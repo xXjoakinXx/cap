@@ -1,3 +1,4 @@
+
 var app = angular.module("app", ["ngRoute", "personaje"]);
 
 app.config(function ($routeProvider) {
@@ -8,6 +9,7 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('appCtrl', ['$scope','$rootScope', function ($scope,$rootScope) {
-    $rootScope.url = "http://localhost:3000";
+    
+    $rootScope.url = 'http://localhost:3000';
 
 }]);

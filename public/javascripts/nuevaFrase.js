@@ -2,12 +2,18 @@ var app = angular.module('app', []);
 app.controller('miCtrl', function (personajes, $http, $scope) {
 
     promise = personajes.getUsers();
+    promise2 = personajes.getRondas();
+    promise2.then(function(data){
+        $scope.rondas = data;
+        $scope.citaCelebre.rondaId = 1;
+    });
     promise.then(function (data) {
         $scope.users = data;
         $scope.citaCelebre = {
             userId: $scope.users[0].id,
             frase: "",
             votos: 0,
+            rondaId:"",
         };
 
     });
@@ -29,6 +35,11 @@ app.controller('miCtrl', function (personajes, $http, $scope) {
 
         addPersonaje: function (citaCelebre) {
             return $http.post('/admin/personaje/create', citaCelebre).then(function (respuesta) {
+                return respuesta.data;
+            })
+        },
+        getRondas: function () {
+            return $http.get('/admin/rondas/json').then(function (respuesta) {
                 return respuesta.data;
             })
         },
