@@ -2,7 +2,7 @@
 var app = angular.module("app", ["ngRoute", "personaje", "rondas"]);
 
 app.config(function ($routeProvider) {
-    $routeProvider.when("/personaje", {
+    $routeProvider.when("/personaje/:rondaId", {
         templateUrl: "/templates/personajes/personajes.html",
         controller: "personajeCtrl"
     })
