@@ -1,7 +1,7 @@
 var models = require('../models/models')
 
-exports.getUsersJson = function(req,res){
-    models.User.findAll().then(function(users){
+exports.getUsersJson = function (req, res) {
+    models.User.findAll().then(function (users) {
         res.json(users)
     })
 }
@@ -11,7 +11,6 @@ exports.index = function (req, res) {
 }
 exports.addUser = function (req, res) {
 
-   
     //console.log("Esto es lo que sale en el body -->", req.body, "<-- Aqui acaba el body");
 
     models.User.create(req.body).then(usuario => {
@@ -36,26 +35,26 @@ exports.autenticar = function (_email, _pass, callback) {
                 console.log("ERROR")
                 callback(new Error('Usuario desconocido'), null)
             }
-        }else{
+        } else {
             callback(new Error('Usuario desconocido'), null)
         }
     });
 
 }
-exports.showRegistro = function(req,res){
+exports.showRegistro = function (req, res) {
     res.render("registro")
 }
 
 exports.findByEmail = function (_email, callback) {
     models.User.find({
-            where: {
-                email: _email.query.email
-            }
-        }).then(function (user) {
-            callback.json({ status: 201, user });
-        });
-    }
+        where: {
+            email: _email.query.email
+        }
+    }).then(function (user) {
+        callback.json({ status: 201, user });
+    });
+}
 
-    exports.profile = function (req, res) {
-        res.render('perfil');
-    }
+exports.profile = function (req, res) {
+    res.render('perfil');
+}

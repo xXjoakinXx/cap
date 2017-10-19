@@ -16,6 +16,7 @@ var users = require('./routes/users');
 var personajes = require('./routes/personajes');
 var votos = require('./routes/votos');
 var comidas = require('./routes/comidas');
+var rondas = require('./routes/rondas');
 
 var app = express();
 // view engine setup
@@ -34,7 +35,6 @@ app.use(session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
-
 
     //redirect despues de login    
     if (!req.path.match(/\/login|\/logout|\/registro|\/user/)) {
@@ -65,6 +65,7 @@ app.use('/users', users);
 app.use('/comidas', comidas);
 app.use('/personajes', personajes);
 app.use('/votos', votos);
+app.use('/rondas', rondas);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -22,6 +22,22 @@ exports.get = function (req, res) {
     });
 }
 
+exports.getPersonajesByRonda = function (req, res) {
+        models.Personajes.findAll({
+            where: {
+               rondaId: req.params.rondaId
+            },
+            include: [{ model: models.User }]
+        }).then(function (pers) {
+            if (pers) {
+                res.json(pers);
+            } else {
+                console.log("ERROR AL RECUPERAR PERSONAJES");
+                next(new Error('Base de datos vacía de personajes'));
+            }
+        });
+    }
+    
 
 //POST /personajes/:personajesId
 exports.votar = function (req, res) {
