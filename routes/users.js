@@ -14,6 +14,6 @@ router.get('/registro', ctrl.index)
 router.post('/registro', ctrl.addUser);
 router.get('/user', ctrl.findByEmail);
 router.get('/perfil', ctrlSession.loginRequired, ctrl.profile)
-
+router.get('/perfil/datos', ctrlSession.loginRequired, ctrl.datos)
 
 module.exports = router;

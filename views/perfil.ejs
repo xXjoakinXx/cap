@@ -1,32 +1,13 @@
-<!DOCTYPE html>
-<html ng-app="appProf">
-
-<head>
-  <title>Perfil</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body ng-controller="ctrlProf">
-
-  <header>
-    <% include layouts/header %>
-  </header>
-    <div class="container">
-        <h3>Mi Perfil</h3>
-        <div class="container">
-                <p>Nombre: <%= session.user.firstName %></p>
-                <p>Apellidos: <%= session.user.lastName %></p>               
-                <p>Email: <%= session.user.email %></p>
-        </div>
-        <button type="button">Editar</button>
-
-
+<div ng-app="appProf" ng-controller="ctrlProf">
+    <div class="row">
+        <div class="col-3">
+            <% include perfil/menu_perfil %>
+        </div>    
     </div>
-    <footer>
-            <% include layouts/footer %>
-    </footer>
-</body>
- 
+    
+
+  </div>
+</div>
+
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
  <script src="/javascripts/perfil.js"></script>
-</html>
