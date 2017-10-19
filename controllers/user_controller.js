@@ -17,6 +17,11 @@ exports.addUser = function (req, res) {
 
 }
 
+exports.getUsersJson = function(req,res){
+    models.User.findAll().then(function(users){
+        res.json(users)
+    })
+}
 exports.autenticar = function (_email, _pass, callback) {
 
     models.User.findAll({
@@ -37,9 +42,6 @@ exports.autenticar = function (_email, _pass, callback) {
         }
     });
 
-}
-exports.showRegistro = function(req,res){
-    res.render("registro")
 }
 
 exports.findByEmail = function (_email, callback) {

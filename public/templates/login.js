@@ -10,6 +10,6 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('appCtrl', ['$scope', function ($scope) {
-    $scope.saludo = "Bienvenido Personaje!";
+    
 
 }]);

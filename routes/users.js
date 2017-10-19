@@ -13,4 +13,7 @@ router.post('/registro', ctrl.addUser);
 router.get('/user', ctrl.findByEmail);
 router.get('/perfil', ctrlSession.loginRequired, ctrl.profile)
 
+router.get('/json', ctrl.getUsersJson);
+
+
 module.exports = router;

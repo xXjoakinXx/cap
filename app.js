@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash'); //para mensajes flash
+var partials = require('express-partials'); // componer layouts
 
 var routes = require('./routes/index');
 
@@ -19,6 +20,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(partials());
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -29,16 +32,21 @@ app.use(cookieParser('quiz formacion cap'));
 app.use(session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(function (req, res, next) {
+
+    //redirect despues de login    
+    if (!req.path.match(/\/login|\/logout/)) {
+        console.log("url login o logoyut o /:" + req.path)
+        req.session.redir = req.path;
+    } else {
+        // console.log("aqui entra")
+        //  req.session.redir = "/";
+    }
+    // console.log("nos iremos a: ")
+    // console.log(req.session.redir)
 
     //hacer visible session en las vistas
     res.locals.session = req.session;
-
-    //hacer visible las queris en la vista
-/*     console.log(req.url)
-    res.locals.query  =  req.params.created; */
-
     next();
 });
 

@@ -1,17 +1,24 @@
 <div ng-app="personaje">
     <h1> {{ listaP }} </h1>
-    <table>
+    <p ng-bind-html="alert"></p>
+</div>
+<div class="table-responsive">
+    <table class="table table-condensed">
         <tr>
             <th>Nombre </th>
+            <th>Frase Celebre </th>
             <th>Votos </th>
             <th>Votar</th>
         </tr>
         <tr ng-repeat="pers in personajes | orderBy: 'votos' : true">
-            <td>{{ pers.nombre }}</td>
+            <td>{{ pers.user.firstName }}</td>
+            <td> {{ pers.frase }} </td>
             <td> {{ pers.votos }} </td>
-            <td> <input type="button" value="+" ng-click="funciones.votar(pers)"/></td>
+            <td>
+                <input type="button" class="btn btn-primary btn-sm" value="+" ng-click="funciones.votar(pers)" />
+            </td>
         </tr>
     </table>
-
+</div>
 
 </div>
