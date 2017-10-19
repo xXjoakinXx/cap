@@ -1,13 +1,13 @@
 
 var personaje = angular.module("personaje", ["ngRoute"]);
 
-personaje.controller('personajeCtrl', ['$rootScope','$scope', '$sce', '$http','$window', '$location', 
-function ($rootScope,$scope, $sce, $http, $window, $location) {
+personaje.controller('personajeCtrl', ['$rootScope','$scope', '$sce', '$http','$window', '$location', '$routeParams',
+function ($rootScope,$scope, $sce, $http, $window, $location, $routeParams) {
     $scope.listaP = "Lista de Personajes";
     $scope.voto = 1;
     $scope.votado = false;
 
-     $http.get($rootScope.url+"/personajes/personajes").then(function(pers){
+     $http.get($rootScope.url+"/personajes/ronda/" + $routeParams.rondaId).then(function(pers){
         $scope.personajes = pers.data;
      }); 
 
