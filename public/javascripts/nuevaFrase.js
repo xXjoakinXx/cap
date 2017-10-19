@@ -13,7 +13,7 @@ app.controller('miCtrl', function (personajes, $http, $scope) {
             userId: $scope.users[0].id,
             frase: "",
             votos: 0,
-            rondaId:1,
+            rondaId:"",
         };
 
     });
