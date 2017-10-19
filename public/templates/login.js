@@ -5,9 +5,7 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         templateUrl: "/templates/personajes/personajes.html",
         controller: "personajeCtrl"
-    })
-        
-        .otherwise({ redirectTo: "/" });
+    }).otherwise({ redirectTo: "/" });
 });
 
 app.controller('appCtrl', ['$scope','$rootScope', function ($scope,$rootScope) {
