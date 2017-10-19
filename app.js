@@ -36,8 +36,13 @@ app.use(function (req, res, next) {
 
     //redirect despues de login    
     if (!req.path.match(/\/login|\/logout/)) {
-        console.log("url login o logoyut o /:" + req.path)
-        req.session.redir = req.path;
+        console.log("url login o logoyut o /:" + req.path);
+        if(!req.path.match(/\/personajes/)){
+            req.session.redir = req.path;
+        }else{
+            req.session.redir = "/personajes/templates/login";
+        }
+        
     } else {
         // console.log("aqui entra")
         //  req.session.redir = "/";

@@ -6,7 +6,6 @@ exports.getUsersJson = function(req,res){
     })
 }
 exports.autenticar = function (_email, _pass, callback) {
-
     models.User.findAll({
         where: {
             email: _email,
