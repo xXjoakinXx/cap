@@ -7,9 +7,11 @@ exports.votos = function(req,res){
 
 //POST /personajes/:personajesId
 exports.votar = function(req, res, next){
-    models.Votos.findOne({
-        where: { UserId: req.session.user.id}
+    models.Votos.findAll({
+        where: { UserId: req.session.user.id},
+        include: [models.Personajes]
     }).then(function(result){
+        console.log(result);
         if(result){
             res.json({estado: "false"});
         }else{

@@ -8,14 +8,12 @@
             <th>Nombre </th>
             <th>Frase Celebre </th>
             <th>Votos </th>
-            <th>Ronda</th>
             <th>Votar</th>
         </tr>
         <tr ng-repeat="pers in personajes | orderBy: 'votos' : true">
                 <td ng-class="{ 'is-first': $first }"> {{ pers.user.firstName }}</td>
                 <td style="font-style: italic" ng-class="{ 'is-first': $first }">" {{ pers.frase }} "</td>
                 <td ng-class="{ 'is-first': $first }"> {{ pers.votos }} </td>
-                <td ng-class="{ 'is-first': $first }"> {{ pers.ronda }} </td>
                 <td ng-class="{ 'is-first': $first }">
                     <input type="button" class="btn btn-primary btn-sm" value="+" ng-click="funciones.votar(pers)" />
                 </td>
