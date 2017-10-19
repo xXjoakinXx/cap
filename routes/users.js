@@ -8,12 +8,12 @@ var ctrlSession = require('../controllers/session_controller')
 router.get('/', function(req, res) {
   res.render('index');
 });
+
+router.get('/json', ctrl.getUsersJson);
 router.get('/registro', ctrl.index)
 router.post('/registro', ctrl.addUser);
 router.get('/user', ctrl.findByEmail);
 router.get('/perfil', ctrlSession.loginRequired, ctrl.profile)
-
-router.get('/json', ctrl.getUsersJson);
 
 
 module.exports = router;

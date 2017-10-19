@@ -1,3 +1,4 @@
+
 var app = angular.module("app", ["ngRoute", "personaje"]);
 
 app.config(function ($routeProvider) {
@@ -9,7 +10,8 @@ app.config(function ($routeProvider) {
         .otherwise({ redirectTo: "/" });
 });
 
-app.controller('appCtrl', ['$scope', function ($scope) {
+app.controller('appCtrl', ['$scope','$rootScope', function ($scope,$rootScope) {
     
+    $rootScope.url = 'http://localhost:3000';
 
 }]);
