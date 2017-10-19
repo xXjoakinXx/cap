@@ -28,7 +28,7 @@ exports.getRondasJson = function(req,res){
 exports.addRonda = function (req, res) {
     
     models.Rondas.create(req.body).then(function(ronda){
-        res.json(ronda)
+        res.render('admin/createRonda',{message: "Ronda creada correctamente"});
     }).catch(function(err){
         res.json(err)
     })

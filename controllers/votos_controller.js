@@ -15,14 +15,14 @@ exports.votar = function (req, res, next) {
         //recorremos los votos
         for (var i = 0; i < votos.length; i++) {
             //si el voto pertenece a la ronda que queremos votar abortamos
-            console.log("ID RONDA" + votos[i].Personaje.rondaId);
+            // console.log("ID RONDA" + votos[i].Personaje.rondaId);
             if (votos[i].Personaje.rondaId == req.body.rondaId) {
                 res.json({ estado: "false" }); //TERMINAMOS EJECUCION
             }
         }
         //sino creamos el voto
         models.Votos.create({
-            PersonajeId: req.params.personajesId,
+            PersonajeId: req.params.personajeId,
             UserId: req.session.user.id
         }).then(function (est) {
             if (est) {

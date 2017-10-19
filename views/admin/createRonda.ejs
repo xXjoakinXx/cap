@@ -1,5 +1,13 @@
 <br>
 <div class="container">
+
+<%  if (typeof message !== 'undefined') {%>
+    <div class="alert alert-success" role="alert">
+             <%= message %>
+          </div>
+<% } %>
+
+
     <form name="form" method="POST" action="/admin/ronda/create">
         <!-- no validate para no usar el validador html5-->
         <div class="col-md-12">

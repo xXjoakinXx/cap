@@ -118,3 +118,7 @@ thead {
   background-color: #5cb85c;
   color: black;
 }
+
+.red{
+  border-color: red;
+}

@@ -3,26 +3,32 @@ app.controller('miCtrl', function (personajes, $http, $scope) {
 
     promise = personajes.getUsers();
     promise2 = personajes.getRondas();
+   
     promise2.then(function (data) {
         $scope.rondas = data;
         $scope.citaCelebre.rondaId = $scope.rondas[0].id;
     });
     promise.then(function (data) {
         $scope.users = data;
+        $scope.reset();
+    });
+    $scope.reset = function () {
         $scope.citaCelebre = {
             userId: $scope.users[0].id,
             frase: "",
             votos: 0,
             rondaId: "",
         };
-
-    });
+    }
     $scope.submitForm = function (form) {
         if (form.$valid) {
             promise = personajes.addPersonaje($scope.citaCelebre);
             promise.then(function (personaje) {
                 $scope.error = false;
                 $scope.alert = true;
+                $scope.reset();
+                form.$setPristine();
+                form.$setUntouched();
             })
         } else {
             $scope.error = true;

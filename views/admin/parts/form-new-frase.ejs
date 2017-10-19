@@ -6,11 +6,14 @@
       <label class="control-label">Escribe una frase</label>
       <input name="frase" ng-model="citaCelebre.frase" maxlength="200" required class="form-control" placeholder="Frase celebre"
         type="text">
+
+
       <div ng-show="(form.$submitted || form.frase.$touched)">
         <span class="text-danger" ng-show="form.frase.$error.required">Por favor escribe una frase</span>
         <!-- <span ng-show="form.frase.$error.email">This is not a valid email.</span> -->
       </div>
     </div>
+   
     <div class="form-group">
       <label class="control-label">Selecciona autor de la frase</label>
       <select id="selectUser" class="form-control" ng-model="citaCelebre.userId" ng-options="user.id as user.firstName for user in users">
