@@ -15,8 +15,7 @@ function ($rootScope,$scope, $sce, $http, $window, $location) {
         votar: function (pers) {
             if ($scope.voto > 0) {
                 pers.votos++;
-
-                $http.post($rootScope.url+"/personajes/personajes/" + pers.id, pers).then(function(res){
+                $http.post($rootScope.url+"/personajes/votar/" + pers.id, pers).then(function(res){
                     console.log(res);
                     if(res.data.estado == "true"){
                         $scope.voto--;

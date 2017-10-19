@@ -19,6 +19,13 @@ Comidas.belongsTo(User);
 // 1-a-N Personajes y Usuarios
 User.hasMany(Personajes);
 Personajes.belongsTo(User);
+Personajes.hasMany(Votos);
+
+//1 a N Votos y Usuarios
+User.hasMany(Votos);
+Votos.belongsTo(User);
+Votos.belongsTo(Personajes);
+
 
 
 
