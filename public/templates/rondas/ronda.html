@@ -1,0 +1,17 @@
+<div ng-app="rondas">
+    <h1>{{ saludo }}</h1>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha Fin</th>
+            </tr>
+            <tr ng-repeat="ronda in rondas" ng-click="irRonda(ronda)">
+                <td> {{ ronda.nombre }}</td>
+                <td> {{ ronda.fechaFin }}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
