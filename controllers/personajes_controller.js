@@ -41,7 +41,7 @@ exports.getPersonajesByRonda = function (req, res) {
 
 //POST /personajes/:personajesId
 exports.votar = function (req, res) {
-    models.Personajes.findById(req.params.personajesId).then(function(result){
+    models.Personajes.findById(req.params.personajeId).then(function(result){
         if(result){
             result.updateAttributes({
               votos: req.body.votos
