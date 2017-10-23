@@ -1,0 +1,33 @@
+<div class="container" ng-app="app" ng-controller="miCtrl" ng-cloak>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-lg-9">
+        <div ng-if="rondas.length > 0" class="table-responsive">
+          <table class="table">
+            <!-- <div class="col-xs-12 col-lg-2 " style="padding: .5rem 1rem;">
+            <a href="/comidas/new"><button type="button" class="btn-block btn btn-success"
+            data-toggle="modal" data-target="#exampleModal">Añadir</button> </a>
+          </div> -->
+          <thead>
+            <tr>
+              <th>Ganador</th>
+              <th>Ronda</th>
+              <th>Votos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="e in rondas">
+             
+              </tr>
+            </tbody>
+          </table>
+
+        
+        </div>
+      </div>
+  
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="/javascripts/ganadores.js"></script>

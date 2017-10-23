@@ -26,8 +26,9 @@ User.hasMany(Votos);
 Votos.belongsTo(User);
 Votos.belongsTo(Personajes);
 
-
-
+// 1 a N Rondas y Personajes
+Rondas.hasMany(Personajes);
+Personajes.belongsTo(Rondas);
 
 exports.Comidas = Comidas;
 exports.User = User;
@@ -48,7 +49,6 @@ exports.Rondas= Rondas;
 //             });
 //         }
 //     });
-
 // })
 
 sequelize.authenticate()
