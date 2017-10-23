@@ -1,4 +1,3 @@
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -23,7 +22,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(partials());
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -38,6 +36,7 @@ app.use(function (req, res, next) {
 
     //redirect despues de login    
     if (!req.path.match(/\/login|\/logout|\/registro|\/user/)) {
+        
         console.log("url login o logoyut o /:" + req.path);
         if (!req.path.match(/\/personajes/)) {
             req.session.redir = req.path;
@@ -47,12 +46,9 @@ app.use(function (req, res, next) {
 
     } else {
         console.log("aqui entra")
-
     }
-
     
     console.log("nos iremos a: ")
-    
     //hacer visible session en las vistas
     res.locals.session = req.session;
     console.log(req.session.redir);

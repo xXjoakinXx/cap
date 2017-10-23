@@ -52,7 +52,6 @@ exports.Rondas= Rondas;
 //             });
 //         }
 //     });
-
 // })
 
 sequelize.authenticate()
