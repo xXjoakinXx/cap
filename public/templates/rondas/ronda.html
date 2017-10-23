@@ -7,11 +7,21 @@
                 <th>Nombre</th>
                 <th>Fecha Fin</th>
             </tr>
-            <tr ng-repeat="ronda in rondas" ng-click="irRonda(ronda)">
+            <tr ng-repeat="ronda in rondas | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="irRonda(ronda)">
                 <td> {{ ronda.nombre }}</td>
                 <td> {{ ronda.fechaFin }}</td>
             </tr>
         </table>
+        <div class="marginButton right">
+
+            <button class="btn btn-secondary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                Previous
+            </button>
+            {{currentPage+1}}/{{numberOfPages()}}
+            <button class="btn btn-secondary" ng-disabled="currentPage >= rondas.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                Next
+            </button>
+        </div>
     </div>
 
 </div>

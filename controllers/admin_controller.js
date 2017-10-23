@@ -21,22 +21,28 @@ exports.createRonda = function (req, res) {
     res.render('admin/createRonda');
 }
 exports.getRondasJson = function (req, res) {
-    
+
     const Op = Sequelize.Op;
     //formamos el filtro en funcion de los parametos
     if (req.query.finalizadas) {
-        filtro = {fechaFin:{[Op.lt]: new Date()}}
+        filtro = { fechaFin: { [Op.lt]: new Date() } }
     } else if (req.query.pendientes) {
-        filtro = {fechaFin:{[Op.gt]: new Date()}}
-    }else{
+        filtro = { fechaFin: { [Op.gt]: new Date() } }
+    } else {
         filtro = {}
     }
 
     models.Rondas.findAll({
-        include:[models.Personajes],
+        include: [{
+            model: models.Personajes,
+            include: [{
+                model: models.User,
+            }],
+        }],
         order: [
-            [ models.Personajes, 'votos', 'DESC' ],
-          ],
+            ['fechaFin', 'DESC'],
+            [models.Personajes, 'votos', 'DESC'],
+        ],
         where: filtro
     }).then(function (rondas) {
         res.json(rondas)

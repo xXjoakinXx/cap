@@ -62,6 +62,8 @@ exports.getJsonComidas = function (req, res) {
                 )
             ]
         }
+        //SELECT *.comidas where DATE(comidas.createdAto) == CURRENT_DATE 
+        
         //ESTE CODIGO MUESTRA TODAS LAS COMIDAS DE LAS ULTIMAS 24 HORAS. COSA QUE NO QUEREMOS
         // where: {
         //     createdAt: {
