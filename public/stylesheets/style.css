@@ -137,3 +137,17 @@ thead {
   from {  opacity:0;  transform: translateY(-100px); }
   to {  opacity:1;  transform: translateY(0); }
 }
+.perf{
+  background-color: rgba(156, 180, 180, 0.5);
+  border-right-style: solid;
+  border-right-color:black; 
+  height: 520px;  
+  color: rgb(130, 177, 107); 
+}
+.nav-perf{
+  color: rgb(163, 163, 29);
+}
+.int-perf{
+  padding-left: 35px;
+  padding-top: 25px;
+}
