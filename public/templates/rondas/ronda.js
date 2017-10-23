@@ -7,7 +7,7 @@ ronda.controller("rondaCtrl", ['$scope','$rootScope','$http','$location',
 
     $http.get($rootScope.url + "/rondas/json").then(function(result){
         $scope.rondas = result.data;
-
+        
         $scope.rondas.forEach(function(element) {
             //Parseo de la fecha de cada ronda
             var parse = element.fechaFin.split("T");

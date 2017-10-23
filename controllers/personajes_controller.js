@@ -22,11 +22,13 @@ exports.get = function (req, res) {
     });
 }
 
+
+//GET /personajes/ronda/:rondaId
 exports.getPersonajesByRonda = function (req, res) {
         models.Personajes.findAll({
             where: {
                rondaId: req.params.rondaId
-            },
+            }, 
             include: [{ all: true }]
         }).then(function (pers) {
             if (pers) {

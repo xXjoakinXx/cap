@@ -4,7 +4,7 @@ var Sequelize = require('sequelize');
 exports.getRondasJson = function (req, res) {
 
     models.Rondas.findAll().then(function (rondas) {
-        return res.json(rondas)
+        return res.json(rondas);
     })
 
 }

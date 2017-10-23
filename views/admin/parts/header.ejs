@@ -18,6 +18,11 @@ crossorigin="anonymous">
     <li class="nav-item">
       <a class="nav-link" href="/admin/ronda/create">Crear ronda</a>
     </li>
+    <li class="nav-item">
+      <form action="/admin/ronda/poblate" method="post">
+      <button class="btn btn-secondary" type="submit">Poblar</button>
+      </form>
+    </li>
   </ul>
 
   <% if(!session.user) {%>

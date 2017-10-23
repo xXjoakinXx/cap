@@ -123,3 +123,12 @@ thead {
   border-color: red;
 }
 
+.fade {
+  animation: my_fade_animation 0.5s linear;
+   opacity: 1;
+ }
+
+@keyframes my_fade_animation {
+  from {  opacity:0;  transform: translateY(-100px); }
+  to {  opacity:1;  transform: translateY(0); }
+}

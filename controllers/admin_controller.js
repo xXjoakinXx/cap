@@ -2,11 +2,13 @@ var models = require('../models/models')
 var Sequelize = require('sequelize');
 
 exports.index = function (req, res) {
-    res.render('admin/panelAdmin', {layout:'admin/panelAdmin'});
+    res.render('admin/panelAdmin', { layout: 'admin/panelAdmin' });
 }
+
 exports.createFrase = function (req, res) {
-    res.render('admin/createFrase',{layout:'admin/createFrase'});
+    res.render('admin/createFrase', { layout: 'admin/createFrase' });
 }
+
 exports.addFrase = function (req, res) {
 
     console.log(req.body)
@@ -17,31 +19,34 @@ exports.addFrase = function (req, res) {
     })
 
 }
+
 exports.createRonda = function (req, res) {
-    res.render('admin/createRonda', {layout: 'admin/createRonda'});
+    res.render('admin/createRonda', { layout: 'admin/createRonda' });
 }
+
 exports.getRondasJson = function (req, res) {
-    
+
     const Op = Sequelize.Op;
     //formamos el filtro en funcion de los parametos
     if (req.query.finalizadas) {
-        filtro = {fechaFin:{[Op.lt]: new Date()}}
+        filtro = { fechaFin: { [Op.lt]: new Date() } }
     } else if (req.query.pendientes) {
-        filtro = {fechaFin:{[Op.gt]: new Date()}}
-    }else{
+        filtro = { fechaFin: { [Op.gt]: new Date() } }
+    } else {
         filtro = {}
     }
 
     models.Rondas.findAll({
-        include:[models.Personajes],
+        include: [models.Personajes],
         order: [
-            [ models.Personajes, 'votos', 'DESC' ],
-          ],
+            [models.Personajes, 'votos', 'DESC'],
+        ],
         where: filtro
     }).then(function (rondas) {
         res.json(rondas)
     })
 }
+
 exports.addRonda = function (req, res) {
 
     models.Rondas.create(req.body).then(function (ronda) {
@@ -50,4 +55,18 @@ exports.addRonda = function (req, res) {
         res.json(err)
     })
 
+}
+
+//POST /admin/ronda/poblate
+exports.poblateRonda = function (req, res) {
+
+    var i;
+    for ( i=0; i<100; i++){
+        models.Rondas.create({
+            nombre: "prueba " + i,
+            fechaFin: new Date()
+        }).then(function (ronda) {
+            console.log("Creada ronda: " + ronda.id);
+        });
+    }
 }

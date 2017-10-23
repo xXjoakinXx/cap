@@ -15,10 +15,18 @@ personaje.controller('personajeCtrl', ['$rootScope', '$scope', '$sce', '$http', 
         }
 
         $http.get($rootScope.url + "/personajes/ronda/" + $routeParams.rondaId).then(function (pers) {
+            
             if (pers.data.length > 0) {
+
+                //Ordenar por votos el array y descencente
+                pers.data.sort(function(a, b){
+                    return a.votos - b.votos;
+                }).reverse();
+
                 $scope.personajes = pers.data;
                 $scope.listaP = "Frases de " + pers.data[0].ronda.nombre;
                 $scope.ganador = $scope.personajes[0].user;
+                $scope.fraseWin = $scope.personajes[0].frase;
 /*                 console.log($scope.ganador);
  */            }
         });
