@@ -50,7 +50,7 @@ app.controller('ctrlReg', function ($scope, $http, $location) {
             $scope.errCompPassword="Las contraseñas no coinciden";
             $scope.wrongPassword2={'border-color':'red','background-color':'rgb(251, 196, 196)'};
         }
-        $http.get('/users/user', {params: { email: $scope.usuario.email}})
+        $http.get('/users/userEmail', {params: { email: $scope.usuario.email}})
         .then(
             function(response){
                if(!numErrores){

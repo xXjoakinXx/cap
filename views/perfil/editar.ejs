@@ -1,0 +1,21 @@
+<div ng-app="appProf" ng-controller="ctrlProf">
+<div class="row">
+    
+    <div class="col-3 perf">
+            <% include menu_perfil %>
+    </div>
+    <div class="col-md-9 int-perf">
+        <p>Esto funciona correctamente 2: el retorno</p>
+        <label for="editNombre">Nombre: </label>
+        <input ng-model="editNombre" id="editNombre"><%= session.user.firstName %>
+        <label for="editApellidos">Apellidos: </label>
+        <input ng-model="editApellidos" id="editApellidos"><%= session.user.lastName %>
+        <label for="editEmail">Email: </label>
+        <input ng-model="editEmail" id="editEmail"><%= session.user.email %>
+        <button type="button" ng-click="guardar()">Guardar</button>
+        <button type="button">Cancelar</button>
+    </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+<script src="/javascripts/perfil.js"></script>

@@ -118,3 +118,17 @@ thead {
   background-color: #5cb85c;
   color: black;
 }
+.perf{
+  background-color: rgba(156, 180, 180, 0.5);
+  border-right-style: solid;
+  border-right-color:black; 
+  height: 520px;  
+  color: rgb(130, 177, 107); 
+}
+.nav-perf{
+  color: rgb(163, 163, 29);
+}
+.int-perf{
+  padding-left: 35px;
+  padding-top: 25px;
+}
