@@ -12,8 +12,10 @@ router.get('/', function(req, res) {
 router.get('/json', ctrl.getUsersJson);
 router.get('/registro', ctrl.index)
 router.post('/registro', ctrl.addUser);
-router.get('/user', ctrl.findByEmail);
+router.get('/userEmail', ctrl.findByEmail);
 router.get('/perfil', ctrlSession.loginRequired, ctrl.profile)
-
-
+router.get('/perfil/datos', ctrlSession.loginRequired, ctrl.datos)
+router.get('/perfil/datos/editar', ctrlSession.loginRequired, ctrl.editar)
+router.get('/userLoged', ctrlSession.loginRequired, ctrl.findUserLoged);
+router.put('/userEdit/', ctrlSession.loginRequired, ctrl.editUser);
 module.exports = router;
