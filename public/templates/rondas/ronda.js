@@ -30,6 +30,10 @@ ronda.controller("rondaCtrl", ['$scope','$rootScope','$http','$location',
     });
 
     $scope.irRonda = function(ronda){
-       location.href = "#/personaje/" + ronda.id;
+       var estado = "";
+
+        if(ronda.estado == false) estado = "?estado=finalizada";
+
+       location.href = "#/personaje/" + ronda.id + estado;
     }
 }]);

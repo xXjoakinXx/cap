@@ -27,7 +27,7 @@ exports.getPersonajesByRonda = function (req, res) {
             where: {
                rondaId: req.params.rondaId
             },
-            include: [{ model: models.User }]
+            include: [{ all: true }]
         }).then(function (pers) {
             if (pers) {
                 res.json(pers);
