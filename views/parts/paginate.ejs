@@ -1,0 +1,10 @@
+<div class="marginButton right">
+
+    <button class="btn btn-secondary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button class="btn btn-secondary" ng-disabled="currentPage >= rondas.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+</div>

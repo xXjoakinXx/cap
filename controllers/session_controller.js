@@ -1,5 +1,13 @@
 var models = require('../models/models')
 
+exports.loginUnRequired = function (req, res, next) {
+
+    if (req.session.user) {
+        res.redirect('/');
+    } else {
+        next();
+    }
+}
 
 exports.loginRequired = function (req, res, next) {
 
@@ -12,7 +20,6 @@ exports.loginRequired = function (req, res, next) {
 
 exports.new = function (req, res) {
     res.render('login', { messages: req.flash('error-login') });
-
 }
 exports.create = function (req, res) {
 
@@ -33,6 +40,6 @@ exports.create = function (req, res) {
 }
 exports.destroy = function (req, res) {
     req.session.user = null,
-    delete req.session.user;
+        delete req.session.user;
     res.redirect("/");
 }

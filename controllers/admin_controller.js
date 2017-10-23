@@ -37,8 +37,14 @@ exports.getRondasJson = function (req, res) {
     }
 
     models.Rondas.findAll({
-        include: [models.Personajes],
+        include: [{
+            model: models.Personajes,
+            include: [{
+                model: models.User,
+            }],
+        }],
         order: [
+            ['fechaFin', 'DESC'],
             [models.Personajes, 'votos', 'DESC'],
         ],
         where: filtro
@@ -61,12 +67,26 @@ exports.addRonda = function (req, res) {
 exports.poblateRonda = function (req, res) {
 
     var i;
-    for ( i=0; i<100; i++){
+    for ( i=0; i<10; i++){
         models.Rondas.create({
             nombre: "prueba " + i,
             fechaFin: new Date()
         }).then(function (ronda) {
-            console.log("Creada ronda: " + ronda.id);
-        });
+            var j;
+            for (var j = 0; j < 5000; j++) {
+               models.Personajes.create({
+                   frase: "Frase " + j,
+                   userId: req.session.user.id,
+                   rondaId: ronda.id,
+                   votos: 0
+               }).then(function(pers){
+                   /* if(i == 9 && j == 4999){
+                       res.render("/admin");
+                   } */
+/*                 console.log("Creado personaje: " + pers.id);
+ */               })
+            }
+/*             console.log("Creada ronda: " + ronda.id);
+ */        });
     }
 }
