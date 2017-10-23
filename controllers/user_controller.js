@@ -42,12 +42,6 @@ exports.autenticar = function (_email, _pass, callback) {
     });
 
 }
-<<<<<<< HEAD
-exports.showRegistro = function (req, res) {
-    res.render("registro")
-}
-=======
->>>>>>> ca652f4c7143b23ad98d9043ffaa1d901618914d
 
 exports.findByEmail = function (_email, callback) {
     models.User.find({
